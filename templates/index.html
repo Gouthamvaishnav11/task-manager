@@ -13,7 +13,7 @@
 <main>
 
     <!--heading 1--> 
-    <h1 class="my-3 text-center">Add a task</h1>
+    <h1 class="my-3 text-center">ADD A TASK</h1>
     <div class="container mt-4">
         <!-- Form for tasks -->
         <form class="text-center border p-4 thick-border" action=" /" method="POST"> 
@@ -47,18 +47,22 @@
             </tr>
         </thead>
         <tbody>
+            {% for task in allTask  %}
+
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{task.sno}}</th>
+                <td>{{task.taskTitle}}</td> 
+                <td>{{task.taskDescription}}</td>
+                <td>
+                    <a href="/update?sno={{task.sno}}"class="btn btn-primary ">Update</a>
+                    <a href="/delete?sno={{task.sno}}" class="btn btn-secondary ">Delete</a>
+                    
+                </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
+                
+            {% endfor %}
+            
+            
         </tbody>
     </table>
 </main>
